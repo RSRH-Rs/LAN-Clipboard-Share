@@ -11,7 +11,7 @@ import hashlib
 import os
 from typing import Optional, Tuple, Literal
 from PIL import Image
-from utils import get_self_ip, get_hash, payload_signature
+from utils import get_self_ip, payload_signature
 from config import *
 
 
@@ -34,12 +34,6 @@ def recv_exact(conn: socket.socket, n: int) -> Optional[bytes]:
 def build_packet(payload_type: int, payload: bytes) -> bytes:
     """
     帧格式：
-    0..3   : magic "CLP1"
-    4      : ver (1 byte)
-    5      : type (1 byte)
-    6..9   : length (uint32, big-endian)
-    10..41 : hmac (32 bytes, 若无PSK则全0)
-    42..   : payload
     """
     header = bytearray()
     header += PROTO_MAGIC

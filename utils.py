@@ -13,11 +13,6 @@ def get_self_ip() -> str:
         return "127.0.0.1"
 
 
-def get_hash(data: bytes) -> str:
-    """生成哈希内容"""
-    return hashlib.sha256(data).hexdigest()
-
-
 def payload_signature(kind: str, data: bytes) -> str:
     import hashlib, io
 

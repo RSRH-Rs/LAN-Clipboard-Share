@@ -1,0 +1,3 @@
+pywin32>=306
+pyperclip>=1.8.2
+Pillow>=10.3.0
